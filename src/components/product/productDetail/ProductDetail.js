@@ -29,13 +29,15 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (isLoggedIn === true) {
-      dispatch(getProduct(id)[id]);
+      dispatch(getProduct(id)).unwrap().catch((error) => {
+        console.error(error);
+      });
     }
-
+  
     if (isError) {
       console.log(message);
     }
-  }, [isLoggedIn, isError, message, dispatch]);
+  }, [isLoggedIn, isError, message, dispatch, id]);
 
   return (
     <div className="product-detail">
