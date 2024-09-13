@@ -29,7 +29,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (isLoggedIn === true) {
-      dispatch(getProduct(id));
+      dispatch(getProduct(id)[id]);
     }
 
     if (isError) {
